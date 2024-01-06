@@ -1,23 +1,33 @@
-// This is a comment
-
+/* Classes and objects */
 
 #include <iostream>
 
 using namespace std;
 
-namespace myspace {
-	void myfunc(){
-		cout << "Hello!\n" << endl;
-	}
-}
+class Car
+{
+	private:
+		int classID {123};
+		void printID() { cout << "The ID: " << classID << endl; }
+	
+	public:
+		string className {"4x4"};
+		string classNickname;
+		void printInfo() { cout << "The classname: " << className << endl; 
+		cout << "The nickname:" << classNickname << endl; }
+};
 
 int main()
 {
-	int answer{42};
-	myspace::myfunc();	
-	cout << "The answer to life, the Universe and everything is " 
-	<< answer 
-	<< endl;
-	
+	Car car1;
+	cout << "The className: " << car1.className << endl;
+	cout << "The classNickname: " << car1.classNickname << endl;
+	car1.className = "2x4";
+	car1.classNickname = "Lada";
+	cout << "The className: " << car1.className << endl;
+	cout << "The classNickname: " << car1.classNickname << endl;
+	//car1.printID();
+	car1.printInfo();
+
 	return 0;
 }
