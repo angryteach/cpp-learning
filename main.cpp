@@ -1,33 +1,29 @@
 /* Classes and objects */
 
 #include <iostream>
-
-using namespace std;
-
-class Car
-{
-	private:
-		int classID {123};
-		void printID() { cout << "The ID: " << classID << endl; }
-	
-	public:
-		string className {"4x4"};
-		string classNickname;
-		void printInfo() { cout << "The classname: " << className << endl; 
-		cout << "The nickname:" << classNickname << endl; }
-};
+#include <typeinfo>
 
 int main()
 {
-	Car car1;
-	cout << "The className: " << car1.className << endl;
-	cout << "The classNickname: " << car1.classNickname << endl;
-	car1.className = "2x4";
-	car1.classNickname = "Lada";
-	cout << "The className: " << car1.className << endl;
-	cout << "The classNickname: " << car1.classNickname << endl;
-	//car1.printID();
-	car1.printInfo();
+	int age {15}; // change this variable around 18 to see the output
+
+	try
+	{
+		if (age < 18)
+		{
+			throw 505;
+		}
+		else
+		{
+			std::cout << "You are old enough." << std::endl;
+		}
+	}
+	catch (int err)
+	{
+		std::cout << "You got an error #" << err << "\n"
+			<< "You are not of age." << "\n"
+			<< "Typeid of the error: " << typeid(err).name() << std::endl;
+	}
 
 	return 0;
 }
